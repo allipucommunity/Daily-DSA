@@ -1,3 +1,12 @@
 [submodule "DSA-manmeet"]
 	path = DSA-manmeet
 	url = https://github.com/Manmeet07/Daily-DSA-Manmeet.git
+[submodule "Daily-DSA"]
+	path = Daily-DSA
+	url = https://github.com/avikuuuu/DSA-LoveBaBar
+[submodule "DSA-solution"]
+	path = DSA-solution
+	url = https://github.com/avikuuuu/DSA-LoveBaBar
+[submodule "DSA-solutions/DSA-avk"]
+	path = DSA-solutions/DSA-avk
+	url = https://github.com/avikuuuu/DSA-LoveBaBar
