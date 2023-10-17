@@ -1,22 +1,83 @@
-// link to the problem
-// https://leetcode.com/problems/pascals-triangle-ii/description/?envType=daily-question&envId=2023-10-16
+// https://leetcode.com/problems/validate-binary-tree-nodes/?envType=daily-question&envId=2023-10-17
+
 #include <bits/stdc++.h>
 #include <iostream>
 using namespace std;
 class Solution
 {
 public:
-    vector<int> getRow(int rowIndex)
+    bool validateBinaryTreeNodes(int n, vector<int> &leftChild, vector<int> &rightChild)
     {
-        vector<int> ve(rowIndex + 1);
-        ve[0] = 1;
-        for (int i = 0; i <= rowIndex; ++i)
+
+        vector<vector<int>> graph(n);
+
+        int edge = 0;
+
+        for (int i = 0; i < n; i++)
         {
-            for (int j = i; j > 0; --j)
+            if (leftChild[i] != -1)
             {
-                ve[j] = ve[j] + ve[j - 1];
+                graph[i].push_back(leftChild[i]);
+                ++edge;
+            }
+            if (rightChild[i] != -1)
+            {
+                graph[i].push_back(rightChild[i]);
+                ++edge;
             }
         }
-        return ve;
+
+        queue<int> q;
+        vector<bool> visited(n, false);
+        vector<int> indegree(n, 0);
+        int ctr = 0;
+
+        for (int i = 0; i < graph.size(); i++)
+        {
+            for (int j = 0; j < graph[i].size(); j++)
+            {
+                indegree[graph[i][j]]++;
+            }
+        }
+
+        for (int i = 0; i < indegree.size(); i++)
+        {
+
+            if (indegree[i] > 1)
+            {
+                return false;
+            }
+            if (indegree[i] == 0)
+            {
+                q.push(i);
+                ctr++;
+            }
+        }
+
+        while (!q.empty())
+        {
+            int front = q.front();
+            visited[front] = true;
+            q.pop();
+
+            for (int i : graph[front])
+            {
+
+                indegree[i]--;
+
+                if (!visited[i] && indegree[i] == 0)
+                {
+                    q.push(i);
+                    ctr++;
+                }
+            }
+        }
+
+        if (ctr != n || edge != n - 1)
+        {
+            return false;
+        }
+
+        return true;
     }
 };
