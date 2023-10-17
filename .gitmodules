@@ -7,6 +7,3 @@
 [submodule "DSA-solution"]
 	path = DSA-solution
 	url = https://github.com/avikuuuu/DSA-LoveBaBar
-[submodule "DSA-solutions/DSA-avk"]
-	path = DSA-solutions/DSA-avk
-	url = https://github.com/avikuuuu/DSA-LoveBaBar
