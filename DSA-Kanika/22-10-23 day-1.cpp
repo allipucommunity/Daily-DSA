@@ -1,5 +1,10 @@
 // https://leetcode.com/problems/set-matrix-zeroes/description/
 
+//i have added this so it doesn't show error in my vs code
+//main code is the solution function
+#include <bits/stdc++.h>
+using namespace std;
+
 //my approach
 class Solution {
 public:

@@ -1,5 +1,10 @@
 // https://leetcode.com/problems/next-permutation/
 
+//i have added this so it doesn't show error in my vs code
+//main code is the solution function
+#include <bits/stdc++.h>
+using namespace std;
+
 class Solution {
 public:
     void nextPermutation(vector<int>& nums) {
