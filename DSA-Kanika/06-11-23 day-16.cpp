@@ -1,4 +1,4 @@
-// https://leetcode.com/problems/binary-tree-inorder-traversal/
+// https://leetcode.com/problems/binary-tree-preorder-traversal/
 
 //i have added this so it doesn't show error in my vs code
 //main code is the solution function
@@ -18,11 +18,11 @@ struct TreeNode {
 class Solution {
     vector<int> ans;
 public:
-    vector<int> inorderTraversal(TreeNode* root) {
+    vector<int> preorderTraversal(TreeNode* root) {
         if(root!=NULL){
-            inorderTraversal(root->left);
             ans.push_back(root->val);
-            inorderTraversal(root->right);
+            preorderTraversal(root->left);
+            preorderTraversal(root->right);
         }
         return ans;
     }
